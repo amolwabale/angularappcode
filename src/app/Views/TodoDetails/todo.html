@@ -1,0 +1,57 @@
+﻿<style type="text/css">
+    #idTableTodoDetails, #idTableTodoDetails th, #idTableTodoDetails td {
+        border: solid 1px #ddd;
+        padding: 4px;
+        border-collapse: collapse;
+    }
+
+</style>
+<div style=" width: 100%; height: 60px; line-height: 60px; vertical-align: middle; border-bottom: solid 1px #ddd; padding-left:5px;">
+    {{Title}} - User Id :  {{todoId}}  &nbsp; |  &nbsp; <a  [routerLink]=" ['/']">Back</a>
+ 
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8 "   >
+            
+            <div id="idTableTodoDetails" class="card" style="overflow-y:auto; padding:10px; ">
+                <table  style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>
+                                TODO Id
+                            </th>
+                            <th>
+                                Title
+                            </th>
+                            <th>
+                                Completed Status
+                            </th>
+                        </tr>
+                    </thead>
+               <tbody>
+                   <tr *ngFor="let item of todoDetails; let i = index">
+                       <td style="width:15%">
+                           {{item.id}} <button title="Delete" (click)='DeleteTodo(i);' style="float:right" type="button" class="btn btn-primary btn-sm">X</button>
+                       </td>
+                       <td>
+                           {{item.title}}
+                       </td>
+                       <td style="width:15%; text-align:center">
+                           <!--<input type="checkbox"    checked="{{item.completed}}" />-->
+                           <input type="checkbox" [(ngModel)]="item.completed" [checked]="item.completed" />
+                       </td>
+                   </tr>
+               </tbody>
+                </table>
+            </div>
+            <div id="idDivBottom" class="input-group btn btn-group" style="width:100%;" >
+                <input [value]="newTodo" (input)="newTodo = $event.target.value" type="text" style="width:100%;"  />
+                <button type="button" (click)='AddTodo()'  class="btn btn-primary btn-sm" >Add TODO</button>
+            </div>
+            
+        </div>
+        <div class="col-2"></div>
+    </div>
+</div>

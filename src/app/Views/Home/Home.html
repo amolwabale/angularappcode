@@ -1,0 +1,142 @@
+﻿<style type="text/css">
+
+    #idTableUserDetails, #idTableUserDetails th, #idTableUserDetails td {
+        border:solid 1px #ddd;
+        padding:4px;
+        border-collapse:collapse;
+    }
+
+    .UserDetailsSection {
+        background-color: #f4f4f4;
+    }
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="col-6" *ngFor="let item of userData" style="padding: 20px">
+            <div class=" card" style="padding:20px">
+                <table style="width:100%" id="idTableUserDetails">
+                    <tr class="UserDetailsSection">
+                        <th colspan="2">Uder Details</th>
+                    </tr>
+                    <tr>
+                        <td style="width:30%">
+                            User Id
+                        </td>
+                        <td>
+                            {{item.id}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Name
+                        </td>
+                        <td>
+                            {{item.name}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            User Name
+                        </td>
+                        <td>
+                            {{item.username}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Email
+                        </td>
+                        <td>
+                            {{item.email}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th colspan="2" class="UserDetailsSection">Address</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            Suite
+                        </td>
+                        <td>
+                            {{item.address.suite}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Street
+                        </td>
+                        <td>
+                            {{item.address.street}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            City
+                        </td>
+                        <td>
+                            {{item.address.city}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Zip Code
+                        </td>
+                        <td>
+                            {{item.address.zipcode}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th colspan="2" class="UserDetailsSection">Geo</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            Latitude
+                        </td>
+                        <td>
+                            {{item.address.geo.lat}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Longitude
+                        </td>
+                        <td>
+                            {{item.address.geo.lng}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th colspan="2" class="UserDetailsSection">Company</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            Company Name
+                        </td>
+                        <td>
+                            {{item.company.name}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            BS
+                        </td>
+                        <td>
+                            {{item.company.bs}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Catch Phrase
+                        </td>
+                        <td>
+                            {{item.company.catchPhrase}}
+                        </td>
+                    </tr>
+                </table>
+
+                <a [routerLink]="['/TodoDetails',item.id]" type="button" class="btn btn-primary">View Todos</a>
+            </div>
+            
+        </div>
+        </div>
+</div>
